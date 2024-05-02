@@ -1,7 +1,7 @@
 {
   "name": "estilospe-service-commerce",
   "vendor": "estilospe",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "title": "Service Example - Commerce Apis",
   "description": "Reference app for VTEX IO Services using VTEX Core Commerce APIs",
   "mustUpdateAt": "2018-01-04",
