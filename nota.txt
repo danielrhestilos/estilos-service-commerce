@@ -1,0 +1,6 @@
+Agregar este objeto a Policies, de manifest.json
+ 
+ 
+    {
+      "name": "ADMIN_DS"
+    }
