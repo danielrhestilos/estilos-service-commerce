@@ -45,8 +45,8 @@ export async function validateRegistrosProps(
             formatDateYesterday,
             docs,
             ok: docs.data.length <3 ,
-            msg: docs.data.length >=3 ?"Por precaución, hemos detenido el uso de tu tarjeta durante 24 horas. Si necesitas ayuda, ¡contáctanos al 01 614 8400 sin dudarlo!" :
-            `Recuerda que tienes 3 intentos para ingresar tu clave. Te quedan ${3 - ctx.body.attempts} intentos.`
+            msg: docs.data.length >=3 ?"Por precaución, hemos detenido el uso de tu tarjeta durante 24 horas para compras en estilos.com.pe. Si necesitas ayuda, ¡contáctanos al 01 614 8400 sin dudarlo!" :
+            `Recuerda que tienes 3 intentos para ingresar tu clave.`
         } 
     }
     
