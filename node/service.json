@@ -6,50 +6,6 @@
   "maxReplicas": 4,
   "workers": 1,
   "routes": {
-    "validateProductInstallments": {
-      "path": "/_v/validate-product-installments/:id",
-      "public": true
-    },
-    "validateCluster": {
-      "path": "/_v/validate-cluster/:id",
-      "public": true
-    },
-    "validateProductAlertShipping": {
-      "path": "/_v/validate-product-alert-shipping/:id",
-      "public": true
-    },
-    "validateProductImpulse": {
-      "path": "/_v/validate-product-impulse/:id",
-      "public": true
-    },
-    "validateSeller": {
-      "public": true,
-      "path": "/_v/validate-seller/:id"
-    },
-    "validateMundial": {
-      "path": "/_v/validate-mundial-form",
-      "public": true
-    },
-    "validateMarketing": {
-      "path": "/_v/validate-marketing-form",
-      "public": true
-    },
-    "validateProductSpecifications":{
-      "path": "/_v/validate-specifications/:id",
-      "public":true
-    },
-    "validateVCOProps":{
-      "path": "/_v/validate-vco",
-      "public":true
-    },
-    "validateGXProps":{
-      "path": "/_v/validate-garantia-extendida-form",
-      "public":true
-    },
-    "validateIPProps":{
-      "path": "/_v/ip",
-      "public":true
-    },
     "validateIntento": {
       "path": "/_v/validate-intento",
       "public": true
