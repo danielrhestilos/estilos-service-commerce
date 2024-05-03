@@ -45,7 +45,7 @@ export async function validateRegistrosProps(
             formatDateYesterday,
             docs,
             ok: docs.data.length <3 ,
-            msg: docs.data.length >=3 ?"Por motivos de seguridad, hemos suspendido temporalmente el uso de la tarjeta por un período de 24 horas. Por favor, no dudes en contactarnos al  para obtener asistencia adicional" :"Recuerda que tienes 3 intentos para ingresar tu clave"
+            msg: docs.data.length >=3 ?"Por precaución, hemos detenido el uso de tu tarjeta durante 24 horas. Si necesitas ayuda, ¡contáctanos al 01 614 8400 sin dudarlo!" :"Recuerda que tienes 3 intentos para ingresar tu clave"
         } 
     }
     
