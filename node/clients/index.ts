@@ -1,9 +1,9 @@
 import { IOClients } from '@vtex/api'
 
-// import Status from './status'
+import { ProductClient } from './product'
 
 export class Clients extends IOClients {
-//   public get status() {
-//     return this.getOrSet('status', Status)
-//   }
+  public get product() {
+    return this.getOrSet('product', ProductClient)
+  }
 }

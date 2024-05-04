@@ -1,4 +1,5 @@
 import { json } from 'co-body'
+
 export async function validateIntentoProps(
   ctx: Context,
   next: () => Promise<unknown>

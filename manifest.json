@@ -20,10 +20,23 @@
       "name": "ADMIN_DS"
     },
     {
+      "name": "view-seller"
+    },
+    {
+      "name": "save-seller"
+    },
+    {
       "name": "outbound-access",
       "attrs": {
         "host": "api.vtex.com",
         "path": "/dataentities/*"
+      }
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "api/catalog"
       }
     },
     {

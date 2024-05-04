@@ -13,6 +13,10 @@
     "validateRegistros": {
       "path": "/_v/validate-registros",
       "public": true
+    },
+    "validateProductByRefId": {
+      "path": "/_v/validate-producto/:refId",
+      "public":true
     }
   }
 }

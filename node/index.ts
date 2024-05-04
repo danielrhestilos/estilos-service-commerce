@@ -2,6 +2,8 @@ import type { ClientsConfig, ServiceContext, RecorderState } from '@vtex/api'
 import { LRUCache, method, Service , Cached} from '@vtex/api'
 import { validateIntentoProps } from './middlewares/validateIntento'
 import { validateRegistrosProps } from './middlewares/validateRegistros'
+import { validateProductByRefIdProps } from './middlewares/validateProduct'
+
 import { Clients } from './clients'
 
 const TIMEOUT_MS = 3000
@@ -79,6 +81,9 @@ export default new Service({
     }),
     validateRegistros:method({
       PUT: [validateRegistrosProps]
+    }),
+    validateProductByRefId:method({
+      GET: [validateProductByRefIdProps]
     })
   },
 })
