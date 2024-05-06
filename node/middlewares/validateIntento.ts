@@ -1,10 +1,13 @@
 import { json } from 'co-body'
+import { decrypt } from './utils'
 
 export async function validateIntentoProps(
   ctx: Context,
   next: () => Promise<unknown>
 ) {
   const body = await json(ctx.req)
+  const {data,timestamp} = body
+  const decryptBody = decrypt(data, timestamp)
   const {
     clients: {masterdata},
   } = ctx
@@ -13,17 +16,18 @@ export async function validateIntentoProps(
   const yesterday = new Date();
   yesterday.setDate(yesterday.getDate() - 1);
   const formatDateYesterday = yesterday.toISOString().slice(0, 10);
+  // const numerodec = 
   const docs = await masterdata.searchDocumentsWithPaginationInfo(
     {
       dataEntity:'CI',
       fields:["fecha","hora","resultado","numero"],
       pagination: {page:1,pageSize:3},
-      where : `(numero=${body.numero} AND resultado=false) AND (fecha between ${formatDateYesterday}T${body.hora} AND ${body.fecha})`
+      where : `(numero=${decryptBody.numero} AND resultado=false) AND (fecha between ${formatDateYesterday}T${decryptBody.hora} AND ${decryptBody.fecha})`
     })
 
   const doc = await  masterdata.createDocument({
     dataEntity:"CI",
-    fields: body,
+    fields: decryptBody,
   })
 
   if (!doc) {
@@ -35,7 +39,7 @@ export async function validateIntentoProps(
   ctx.body = {
     result: "ok",
     docs: docs,
-    body,
+    body: decryptBody,
     formatDate
   }
   ctx.set('Cache-Control', 'no-cache')

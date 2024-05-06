@@ -1,10 +1,13 @@
 import { json } from 'co-body'
-
+import { decrypt } from './utils'
 export async function validateRegistrosProps(
   ctx: Context,
   next: () => Promise<unknown>
 ) {
   const body = await json(ctx.req)
+  const {data,timestamp} = body
+  const decryptBody = decrypt(data, timestamp)
+
   const {
     clients: {masterdata},
   } = ctx
@@ -18,14 +21,14 @@ export async function validateRegistrosProps(
       dataEntity:'CI',
       fields:["fecha","hora","resultado","numero"],
       pagination: {page:1,pageSize:10},
-      where : `(numero=${body.numero}) AND (fecha between ${formatDateYesterday}T${body.hora} AND ${body.fecha})`
+      where : `(numero=${decryptBody.numero}) AND (fecha between ${formatDateYesterday}T${decryptBody.hora} AND ${decryptBody.fecha})`
     }) 
     if (!docs) {
         ctx.status = 404
         return
     }
     else {
-        algunCorrecto  = docs.data.some((registro:any) => registro.resultado == true)
+        algunCorrecto  = docs?.data.some((registro:any) => registro.resultado == true)
     }
     ctx.status = 200
     if(algunCorrecto) {
