@@ -19,8 +19,7 @@ export async function validateRegistrosProps(
       fields:["fecha","hora","resultado","numero"],
       pagination: {page:1,pageSize:10},
       where : `(numero=${body.numero}) AND (fecha between ${formatDateYesterday}T${body.hora} AND ${body.fecha})`
-    })
-
+    }) 
     if (!docs) {
         ctx.status = 404
         return
@@ -28,9 +27,7 @@ export async function validateRegistrosProps(
     else {
         algunCorrecto  = docs.data.some((registro:any) => registro.resultado == true)
     }
-
     ctx.status = 200
-
     if(algunCorrecto) {
         ctx.body = {
         attempts: 0,
@@ -44,8 +41,8 @@ export async function validateRegistrosProps(
             attempts: docs.data.length,
             formatDateYesterday,
             docs,
-            ok: docs.data.length <3 ,
-            msg: docs.data.length >=3 ?"Por precaución, hemos detenido el uso de tu tarjeta durante 24 horas para compras en estilos.com.pe. Si necesitas ayuda, ¡contáctanos al 01 614 8400 sin dudarlo!" :
+            ok: docs.data.length <2 ,
+            msg: docs.data.length >=2 ?"Por precaución, hemos detenido el uso de tu tarjeta durante 24 horas para compras en estilos.com.pe. Si necesitas ayuda, ¡contáctanos al 01 614 8400 sin dudarlo!" :
             `Recuerda que tienes 3 intentos para ingresar tu clave.`
         } 
     }
