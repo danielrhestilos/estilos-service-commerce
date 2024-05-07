@@ -27,5 +27,4 @@ export class ProductClient extends Catalog{
 
     return rp
   }
-  // public async up
 }

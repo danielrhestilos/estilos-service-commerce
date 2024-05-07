@@ -46,7 +46,7 @@ export async function validateRegistrosProps(
             docs,
             ok: docs.data.length <2 ,
             msg: docs.data.length >=2 ?"Por precaución, hemos detenido el uso de tu tarjeta durante 24 horas para compras en estilos.com.pe. Si necesitas ayuda, ¡contáctanos al 01 614 8400 sin dudarlo!" :
-            `Recuerda que tienes 3 intentos para ingresar tu clave.`
+            `Recuerda que tienes 3 intentos para ingresar tu clave`
         } 
     }
     
