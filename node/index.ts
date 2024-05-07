@@ -83,7 +83,7 @@ export default new Service({
       PUT: [validateRegistrosProps]
     }),
     validateProductByRefId:method({
-      GET: [validateProductByRefIdProps]
+      POST: [validateProductByRefIdProps]
     })
   },
 })
