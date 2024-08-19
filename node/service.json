@@ -1,13 +1,17 @@
 {
   "memory": 256,
   "ttl": 10,
-  "timeout": 4,
+  "timeout": 3,
   "minReplicas": 2,
   "maxReplicas": 4,
   "workers": 1,
   "routes": {
     "validateIntento": {
       "path": "/_v/validate-intento",
+      "public": true
+    },
+    "validateCyber": {
+      "path": "/_v/validate-cyber",
       "public": true
     },
     "validateRegistros": {
@@ -17,6 +21,24 @@
     "validateProductByRefId": {
       "path": "/_v/validate-producto/:refId",
       "public":true
+    },
+    "validateCategoryById": {
+      "path": "/_v/validate-category/:categoryId",
+      "public":true
+    },
+    "validateCollection":{
+      "path": "/_v/validate-collection/:id",
+      "public":true
     }
+    ,
+    "validateKlaviyo":{
+      "path": "/_v/validate-klaviyo",
+      "public":true
+    },
+    "validateProduct":{
+      "path":"/_v/validate-product/:productId",
+      "public":true
+    }
+
   }
 }

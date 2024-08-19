@@ -3,21 +3,25 @@ import { LRUCache, method, Service , Cached} from '@vtex/api'
 import { validateIntentoProps } from './middlewares/validateIntento'
 import { validateRegistrosProps } from './middlewares/validateRegistros'
 import { validateProductByRefIdProps } from './middlewares/validateProduct'
-
+import { validateCollectionProps } from './middlewares/validateCollection'
+import { validateCategoryByIdProps } from './middlewares/validateCategory'
+import { validateCyberProps } from './middlewares/validateCyber'
 import { Clients } from './clients'
+import { validateKlaviyoProps } from './middlewares/validateKlaviyo'
+import { validateProductProps } from './middlewares/validateProduct'
 
-const TIMEOUT_MS = 3000
+const TIMEOUT_MS = 8000
 const CONCURRENCY = 10
 
 
 const memoryCache = new LRUCache<string, any>({ max: 5000 })
 
 const tenantCacheStorage = new LRUCache<string, Cached>({
-  max: 3000
+  max: 4000
 })
 
 const segmentCacheStorage = new LRUCache<string, Cached>({
-  max: 3000
+  max: 4000
 })
 
 metrics.trackCache('tenant', tenantCacheStorage)
@@ -79,11 +83,26 @@ export default new Service({
     validateIntento:method({
       PUT: [validateIntentoProps]
     }),
+    validateCyber:method({
+      PUT: [validateCyberProps]
+    }),
     validateRegistros:method({
       PUT: [validateRegistrosProps]
     }),
+    validateKlaviyo:method({
+      POST: [validateKlaviyoProps]
+    }),
     validateProductByRefId:method({
       POST: [validateProductByRefIdProps]
+    }),
+    validateCollection:method({
+      GET:[validateCollectionProps]
+    }),
+    validateCategoryById:method({
+      GET:[validateCategoryByIdProps]
+    }),
+    validateProduct:method({
+      GET: [validateProductProps]
     })
   },
 })

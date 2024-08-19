@@ -34,3 +34,39 @@ export async function validateProductByRefIdProps(
 
   await next();
 }
+
+
+export async function validateProductProps(
+  ctx: Context,
+  next: () => Promise<unknown>
+) {
+
+  // const body = await json(ctx.req);
+
+  const {
+    vtex: {
+      route: {
+        params: { productId },
+      },
+    },
+    clients: {product },
+  } = ctx;
+
+  //buscar esto dentro de catalog.d.ts que esta en node modules
+
+  const targetProduct = await product.getProduct(productId);
+
+  if (!targetProduct) {
+    ctx.status = 404
+    return
+  }
+
+  ctx.status = 200
+  ctx.body = {
+     targetProduct
+  }
+  
+  ctx.set('Cache-Control', 'no-cache')
+
+  await next();
+}
