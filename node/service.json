@@ -29,6 +29,10 @@
     "validateCollection":{
       "path": "/_v/validate-collection/:id",
       "public":true
+    },
+    "validateOrder":{
+      "path": "/_v/validate-order/:orderId",
+      "public":true
     }
     ,
     "validateKlaviyo":{

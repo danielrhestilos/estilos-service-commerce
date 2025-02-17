@@ -17,8 +17,7 @@ export class  CategoryClient extends Catalog{
 
   public async updateCategory(categoryId: any,data:any) {
 
-    // console.log('description',description);
-    
+    // console.log('description',description);  
     const targetCategory:any = await this.http.get(
       `/api/catalog/pvt/category/${categoryId}`,
       {

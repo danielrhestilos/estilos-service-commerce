@@ -5,6 +5,7 @@ import { CategoryClient } from './category'
 import { CollectionClient } from './collection'
 import {Logistics} from './logistics'
 import KlaviyoClient from './klaviyo'
+import { OrderClient } from './order'
 
 
 export class Clients extends IOClients {
@@ -13,6 +14,9 @@ export class Clients extends IOClients {
   }
   public get category() {
     return this.getOrSet('category', CategoryClient)
+  }
+  public get order(){
+    return this.getOrSet('order', OrderClient)
   }
   public get collection() {
     return this.getOrSet('collection', CollectionClient)

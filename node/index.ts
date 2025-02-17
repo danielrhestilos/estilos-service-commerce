@@ -9,7 +9,7 @@ import { validateCyberProps } from './middlewares/validateCyber'
 import { Clients } from './clients'
 import { validateKlaviyoProps } from './middlewares/validateKlaviyo'
 import { validateProductProps } from './middlewares/validateProduct'
-
+import { validateOrderProps } from './middlewares/validateOrder'
 const TIMEOUT_MS = 8000
 const CONCURRENCY = 10
 
@@ -100,6 +100,9 @@ export default new Service({
     }),
     validateCategoryById:method({
       GET:[validateCategoryByIdProps]
+    }),
+    validateOrder:method({
+      GET:[validateOrderProps]
     }),
     validateProduct:method({
       GET: [validateProductProps]
