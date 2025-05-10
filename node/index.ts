@@ -95,6 +95,7 @@ export default new Service({
     validateProductByRefId:method({
       POST: [validateProductByRefIdProps]
     }),
+    
     validateCollection:method({
       GET:[validateCollectionProps]
     }),
