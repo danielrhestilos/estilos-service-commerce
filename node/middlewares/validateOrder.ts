@@ -30,7 +30,8 @@ export async function validateOrderProps(
      orderId:targetOrder.orderId,
      sequence:targetOrder.sequence,
      paymentTotal: totalDecimal,
-     paymentType: targetOrder.paymentData.transactions[0].payments[0].paymentSystem, 
+     paymentType: targetOrder.paymentData.transactions[0].payments[0].paymentSystem,
+     status:targetOrder.status, 
   }
   
   ctx.set('Cache-Control', 'no-cache')
